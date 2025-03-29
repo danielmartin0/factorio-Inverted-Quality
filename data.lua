@@ -1,0 +1,6 @@
+require("prototypes.categories")
+require("prototypes.entity.meltdown-facility")
+require("prototypes.entity.compatibility-port")
+require("prototypes.item")
+require("prototypes.quality")
+require("prototypes.recipe")
