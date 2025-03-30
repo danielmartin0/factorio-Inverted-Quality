@@ -27,6 +27,7 @@ data.raw.quality.legendary.color = { 53, 31, 25 }
 data.raw.quality.legendary.beacon_power_usage_multiplier = 1
 data.raw.quality.legendary.mining_drill_resource_drain_multiplier = 1
 data.raw.quality.legendary.science_pack_drain_multiplier = 1
+data.raw.quality.legendary.hidden = true
 
 for _, quality in pairs(data.raw.quality) do
 	quality.level = 5 - quality.level
