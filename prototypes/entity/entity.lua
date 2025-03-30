@@ -53,7 +53,7 @@ data:extend({
 				},
 			},
 		},
-		crafting_categories = { "crafting", "basic-crafting", "advanced-crafting" },
+		crafting_categories = data.raw["assembling-machine"]["assembling-machine-1"].crafting_categories,
 		crafting_speed = 0.4,
 		energy_source = {
 			type = "burner",
