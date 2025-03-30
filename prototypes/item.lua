@@ -1,13 +1,32 @@
+local item_sounds = require("__base__.prototypes.item_sounds")
+
 data:extend({
 	{
 		type = "item",
-		name = "Inverted-Quality-compatibility-port",
-		icon = "__Inverted-Quality__/graphics/icons/compatibility-port.png",
+		name = "Inverted-Quality-burner-assembling-machine",
+		icon = "__Inverted-Quality__/graphics/icons/burner-assembling-machine.png",
+		subgroup = "production-machine",
+		color_hint = { text = "1" },
+		order = "a[assembling-machine-0]",
+		inventory_move_sound = item_sounds.mechanical_inventory_move,
+		pick_sound = item_sounds.mechanical_inventory_pickup,
+		drop_sound = item_sounds.mechanical_inventory_move,
+		place_result = "Inverted-Quality-burner-assembling-machine",
+		stack_size = 50,
+		random_tint_color = item_tints.iron_rust,
+	},
+	{
+		type = "item",
+		name = "Inverted-Quality-downgrade-port",
+		icon = "__Inverted-Quality__/graphics/icons/downgrade-port.png",
 		icon_size = 170,
-		subgroup = "compatibility-port",
-		order = "a[Inverted-Quality]-a[compatibility-port]",
-		place_result = "Inverted-Quality-compatibility-port",
+		subgroup = "downgrade-port",
+		order = "a[Inverted-Quality]-a[downgrade-port]",
+		place_result = "Inverted-Quality-downgrade-port",
 		stack_size = 100,
+		inventory_move_sound = item_sounds.metal_small_inventory_move,
+		pick_sound = item_sounds.metal_small_inventory_pickup,
+		drop_sound = item_sounds.metal_small_inventory_move,
 	},
 	{
 		type = "item",
@@ -18,5 +37,8 @@ data:extend({
 		order = "c[electric-furnace]-b[Inverted-Quality-meltdown-facility]",
 		place_result = "Inverted-Quality-meltdown-facility",
 		stack_size = 20,
+		inventory_move_sound = item_sounds.metal_large_inventory_move,
+		pick_sound = item_sounds.metal_large_inventory_pickup,
+		drop_sound = item_sounds.metal_large_inventory_move,
 	},
 })

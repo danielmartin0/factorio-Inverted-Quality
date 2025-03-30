@@ -6,11 +6,11 @@ local SCALE = 0.23
 data:extend({
 	{
 		type = "furnace",
-		name = "Inverted-Quality-compatibility-port",
+		name = "Inverted-Quality-downgrade-port",
 		vector_to_place_result = { 0, -0.84 },
-		icon = "__Inverted-Quality__/graphics/icons/compatibility-port.png",
+		icon = "__Inverted-Quality__/graphics/icons/downgrade-port.png",
 		flags = { "placeable-neutral", "placeable-player", "player-creation" },
-		minable = { mining_time = 0.1, result = "Inverted-Quality-compatibility-port" },
+		minable = { mining_time = 0.1, result = "Inverted-Quality-downgrade-port" },
 		max_health = 50,
 		corpse = "small-remnants",
 		dying_explosion = "splitter-explosion",
@@ -24,7 +24,7 @@ data:extend({
 		collision_box = { { -0.29, -0.3 }, { 0.29, 0.3 } },
 		selection_box = { { -0.49, -0.5 }, { 0.49, 0.5 } },
 		damaged_trigger_effect = hit_effects.entity(),
-		fast_replaceable_group = "Inverted-Quality-compatibility-port",
+		fast_replaceable_group = "Inverted-Quality-downgrade-port",
 		-- next_upgrade = "assembling-machine-2",
 		circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
 		circuit_connector = circuit_connector_definitions["assembling-machine"],
@@ -34,7 +34,7 @@ data:extend({
 				north = {
 					layers = {
 						{
-							filename = "__Inverted-Quality__/graphics/entity/compatibility-port/compatibility-port.png",
+							filename = "__Inverted-Quality__/graphics/entity/downgrade-port/downgrade-port.png",
 							priority = "extra-high",
 							width = 424,
 							height = 340,
@@ -50,7 +50,7 @@ data:extend({
 				east = {
 					layers = {
 						{
-							filename = "__Inverted-Quality__/graphics/entity/compatibility-port/compatibility-port.png",
+							filename = "__Inverted-Quality__/graphics/entity/downgrade-port/downgrade-port.png",
 							priority = "extra-high",
 							width = 424,
 							height = 340,
@@ -66,7 +66,7 @@ data:extend({
 				south = {
 					layers = {
 						{
-							filename = "__Inverted-Quality__/graphics/entity/compatibility-port/compatibility-port.png",
+							filename = "__Inverted-Quality__/graphics/entity/downgrade-port/downgrade-port.png",
 							priority = "extra-high",
 							width = 424,
 							height = 340,
@@ -82,7 +82,7 @@ data:extend({
 				west = {
 					layers = {
 						{
-							filename = "__Inverted-Quality__/graphics/entity/compatibility-port/compatibility-port.png",
+							filename = "__Inverted-Quality__/graphics/entity/downgrade-port/downgrade-port.png",
 							priority = "extra-high",
 							width = 424,
 							height = 340,
@@ -117,7 +117,7 @@ data:extend({
 
 		result_inventory_size = 1,
 		source_inventory_size = 1,
-		custom_input_slot_tooltip_key = "compatibility-port-input-slot-tooltip",
+		custom_input_slot_tooltip_key = "downgrade-port-input-slot-tooltip",
 		icon_draw_specification = { scale = 0.75, scale_for_many = 0.5 },
 		perceived_performance = { maximum = 4 },
 		created_effect = {
@@ -127,7 +127,7 @@ data:extend({
 				source_effects = {
 					{
 						type = "script",
-						effect_id = "Inverted-Quality-compatibility-port-created",
+						effect_id = "Inverted-Quality-downgrade-port-created",
 					},
 				},
 			},

@@ -1,6 +1,6 @@
 local common = require("common")
 
-local MELTDOWN_FACTOR = 1 / 16
+local MELTDOWN_FACTOR = 1 / 8
 
 local function get_avg_amount(product)
 	local base_amount = 0
@@ -57,10 +57,6 @@ local function get_nontrivial_recycling_products(item_name)
 end
 
 local function compute_meltdown_values(item_name)
-	if not get_nontrivial_recycling_products(item_name) then
-		return { [item_name] = MELTDOWN_FACTOR }
-	end
-
 	local final_values = {}
 
 	local to_process = { { item_name, 1 } }
@@ -77,7 +73,7 @@ local function compute_meltdown_values(item_name)
 					table.insert(new_working, { name, value * current_value * 4 })
 				end
 			else
-				final_values[current_name] = (final_values[current_name] or 0) + current_value
+				final_values[current_name] = (final_values[current_name] or 0) + current_value * MELTDOWN_FACTOR
 			end
 		end
 
@@ -101,7 +97,7 @@ for name, item in pairs(data.raw.item) do
 			name = name .. "-meltdown",
 			localised_name = { "recipe-name.Inverted-Quality-meltdown", common.get_item_localised_name(item.name) },
 			hidden = item.hidden and true or false,
-			hidden_in_factoriopedia = true,
+			-- hidden_in_factoriopedia = true,
 			hide_from_player_crafting = true,
 			hide_from_signal_gui = true,
 			category = "Inverted-Quality-meltdown",
@@ -110,7 +106,7 @@ for name, item in pairs(data.raw.item) do
 			ingredients = { { type = "item", name = name, amount = 1 } },
 			results = products,
 			icons = common.generate_meltdown_recipe_icons_from_item(item),
-			order = "m[meltdown]-" .. name,
+			order = "z[meltdown]-" .. name,
 			enabled = true,
 			auto_recycle = false,
 			show_amount_in_title = false,

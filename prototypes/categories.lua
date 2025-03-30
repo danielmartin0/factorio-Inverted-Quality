@@ -21,7 +21,7 @@ data:extend({
 	},
 	{
 		type = "item-subgroup",
-		name = "compatibility-port",
+		name = "downgrade-port",
 		group = "production",
 		order = "e-a[Inverted-Quality]",
 	},

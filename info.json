@@ -1,10 +1,10 @@
 {
     "name": "Inverted-Quality",
     "author": "thesixthroc",
-    "version": "0.1.0",
-    "title": "Inverted-Quality",
-    "description": "",
+    "version": "0.1.1",
+    "title": "Inverted Quality (Alpha)",
+    "description": "Replaces Quality by a new system, Degradation.\n\nMined and smelted items start at Nominal degradation. Each time an item is crafted, it has a 90% chance to become more degraded.\n\nA new entity, the Downgrade Port, allows low-degradation items to be used in high-degradation recipes.",
     "contact": "Discord: thesixthroc",
     "factorio_version": "2.0",
-    "dependencies": ["base >= 2.0.0", "space-age >= 2.0.0", "quality >= 2.0.0"]
+    "dependencies": ["base >= 2.0.42", "space-age >= 2.0.42", "quality >= 2.0.42"]
 }

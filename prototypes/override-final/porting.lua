@@ -8,7 +8,7 @@ for _, type in pairs({ "item", "tool" }) do
 					type = "recipe",
 					name = name .. "-porting",
 					localised_name = {
-						"recipe-name.Inverted-Quality-compatibility-porting",
+						"recipe-name.Inverted-Quality-downgrade-porting",
 						common.get_item_localised_name(item.name),
 					},
 					hidden = item.hidden and true or false,
