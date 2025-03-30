@@ -53,7 +53,7 @@ data:extend({
 				},
 			},
 		},
-		crafting_categories = { "crafting", "basic-crafting" },
+		crafting_categories = { "crafting", "basic-crafting", "advanced-crafting" },
 		crafting_speed = 0.4,
 		energy_source = {
 			type = "burner",

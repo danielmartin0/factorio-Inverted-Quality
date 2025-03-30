@@ -2,6 +2,7 @@
 Version: 0.1.4
 Date: ????
   Changes:
+    - Fixed that burner assembling machines could not make some items.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.2
 Date: 2025-03-30
