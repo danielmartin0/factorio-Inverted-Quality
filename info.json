@@ -1,7 +1,7 @@
 {
     "name": "Inverted-Quality",
     "author": "thesixthroc",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "title": "Inverted Quality (Beta)",
     "description": "Inverts Quality into a new system, Degradation. Mined and smelted items start at Nominal degradation. Each crafted item has a 90% chance to become more degraded.\n\nThree new entities are provided: Downgrade Port allows low-degradation items to be used in high-degradation recipes; Meltdown Facility allows the melting down of highly degraded items back into undegraded base materials; and a Burner Assembling Machine to avoid a softlock in the early-game.",
     "contact": "Discord: thesixthroc",
