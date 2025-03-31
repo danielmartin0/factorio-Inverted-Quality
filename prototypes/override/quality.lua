@@ -1,4 +1,7 @@
-data.raw.quality.normal.icon = "__Inverted-Quality__/graphics/icons/degradation-1.png"
+for _, quality in pairs(data.raw.quality) do
+	quality.level = 5 - quality.level
+end
+
 data.raw.quality.normal.color = { 238, 238, 238 }
 data.raw.quality.normal.beacon_power_usage_multiplier = 1
 data.raw.quality.normal.mining_drill_resource_drain_multiplier = 1
@@ -27,11 +30,7 @@ data.raw.quality.legendary.color = { 53, 31, 25 }
 data.raw.quality.legendary.beacon_power_usage_multiplier = 1
 data.raw.quality.legendary.mining_drill_resource_drain_multiplier = 1
 data.raw.quality.legendary.science_pack_drain_multiplier = 1
--- data.raw.quality.legendary.hidden = true
-
-for _, quality in pairs(data.raw.quality) do
-	quality.level = 5 - quality.level
-end
+data.raw.quality.legendary.hidden = true
 
 -- data.raw.quality.normal.level = 10
 -- data.raw.quality.normal.icon = "__Inverted-Quality__/graphics/icons/degradation-1.png"

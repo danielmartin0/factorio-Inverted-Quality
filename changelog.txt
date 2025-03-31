@@ -1,7 +1,9 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.1
-Date: ????
-  Changes:
+Date: 2025-03-31
+  Graphics:
+    - Small graphical tweak to Nominal quality icon.
+    - Fixed that Busted was not hidden as intended.
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.0
 Date: 2025-03-31
