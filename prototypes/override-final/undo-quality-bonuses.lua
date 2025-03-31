@@ -1,13 +1,15 @@
 local lib = require("lib")
 local find = lib.find
 
+-- Don't forget to update the locale entries if customizing this behavior.
+
 local QUALITY_LEVELS_TO_UNDO = data.raw.quality.normal.level
 
 local QUALITY_EFFECTS = {
 	max_health = { relative = 0.3 },
 
 	-- Crafting machines
-	crafting_speed = { relative = 0.3 },
+	crafting_speed = { relative = 0.3, bonus = 0.1 },
 
 	-- Roboports
 	robot_slots_count = { relative = 0.3, floor = true },
