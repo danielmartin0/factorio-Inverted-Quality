@@ -33,6 +33,12 @@ local QUALITY_EFFECTS = {
 		type = { "ammo-turret", "gun", "electric-turret", "artillery-turret", "turret", "fluid-turret" },
 	},
 
+	-- Undocumented
+	revenge_attack_parameters = {
+		recursive = true,
+		range = { relative = 0.1 },
+	},
+
 	-- Electric poles
 	supply_area_distance = { absolute = 1, type = "electric-pole", bonus = 1 },
 	maximum_wire_distance = { absolute = 2, bonus = 2 },
