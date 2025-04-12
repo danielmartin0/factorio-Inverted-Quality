@@ -9,7 +9,7 @@ function Public.re_init()
 	for _, force in pairs(game.forces) do
 		for name, tech in pairs(force.technologies) do
 			local prototype = tech.prototype
-			if not prototype.hidden and prototype.effects then
+			if prototype.effects then
 				for _, effect in pairs(prototype.effects) do
 					if effect.type == "unlock-quality" then
 						force.technologies[name].researched = true

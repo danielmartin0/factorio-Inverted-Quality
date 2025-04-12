@@ -13,7 +13,7 @@ for _, type in pairs({
 			e.effect_receiver.base_effect = {}
 		end
 		e.effect_receiver.base_effect.quality = common.BASE_DEGRADATION_CHANCE * 10
-			- (e.effect_receiver.base_effect.quality or 0) -- Defaults to 90%
+			- (e.effect_receiver.base_effect.quality or 0)
 		-- if name == "Inverted-Quality-meltdown-facility" or name == "Inverted-Quality-downgrade-port" then
 		-- 	e.effect_receiver.base_effect.quality = -100
 		-- end
