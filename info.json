@@ -3,7 +3,7 @@
     "author": "thesixthroc",
     "version": "0.5.2",
     "title": "Inverted Quality",
-    "description": "Quality now consists of negative tiers (positive tiers are removed). Crafting items has a 60% chance to reduce their quality by one tier.\n\nTo cope with the new gameplay, three additional entities are provided: the Downgrade Port allows high-quality items to be used in low-quality recipes; the Meltdown Facility allows the melting down of low-quality items back into Normal base materials; and the Burner Assembling Machine avoids a softlock in the early-game.",
+    "description": "Quality now consists of negative tiers (positive tiers are removed). Crafting items has a 60% chance to reduce their quality by one tier.\n\nTo cope with the new gameplay, the new Downgrade Port allows high-quality items to be used in low-quality recipes, and the Meltdown Facility allows the melting down of low-quality items back into Normal base materials.",
     "contact": "Discord: thesixthroc",
     "factorio_version": "2.0",
     "quality_required": true,
