@@ -2,7 +2,7 @@ data:extend({
 	{
 		type = "quality",
 		name = "scuffed",
-		level = 4,
+		level = -1,
 		color = { 55, 55, 21 },
 		order = "b",
 		next = "funky",
@@ -16,7 +16,7 @@ data:extend({
 	{
 		type = "quality",
 		name = "funky",
-		level = 3,
+		level = -2,
 		color = { 82, 43, 15 },
 		order = "c",
 		next = "defective",
@@ -30,7 +30,7 @@ data:extend({
 	{
 		type = "quality",
 		name = "defective",
-		level = 2,
+		level = -3,
 		color = { 96, 11, 16 },
 		order = "d",
 		next = "broken",
@@ -44,7 +44,7 @@ data:extend({
 	{
 		type = "quality",
 		name = "broken",
-		level = 0,
+		level = -5,
 		color = { 53, 31, 25 },
 		order = "e",
 		subgroup = "qualities",
@@ -52,7 +52,7 @@ data:extend({
 		beacon_power_usage_multiplier = 1,
 		mining_drill_resource_drain_multiplier = 1,
 		science_pack_drain_multiplier = 1,
-		hidden = true,
+		-- hidden = true,
 	},
 })
 

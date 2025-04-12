@@ -3,7 +3,11 @@ local find = lib.find
 
 -- Don't forget to update the locale entries if customizing this behavior.
 
-local QUALITY_LEVELS_TO_UNDO = data.raw.quality.normal.level
+for _, quality in pairs(data.raw.quality) do
+	quality.level = quality.level + 5
+end
+
+local QUALITY_LEVELS_TO_UNDO = 5
 
 local QUALITY_EFFECTS = {
 	max_health = { relative = 0.3 },

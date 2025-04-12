@@ -3,7 +3,7 @@
     "author": "thesixthroc",
     "version": "0.4.1",
     "title": "Inverted Quality (Beta)",
-    "description": "Inverts the quality system. Items start at the highest quality (Nominal) when mined or smelted. When crafted, there is a 60% chance to reduce in quality.\n\nTo cope with the new gameplay, three additional entities are provided: the Downgrade Port allows high-quality items to be used in low-quality recipes; the Meltdown Facility allows the melting down of low-quality items back into Nominal-quality base materials; and the Burner Assembling Machine avoids a softlock in the early-game.",
+    "description": "Inverts the quality system into negative tiers. Crafting items has a 60% chance to reduce their quality by one tier. \n\nTo cope with the new gameplay, three additional entities are provided: the Downgrade Port allows high-quality items to be used in low-quality recipes; the Meltdown Facility allows the melting down of low-quality items back into Normal base materials; and the Burner Assembling Machine avoids a softlock in the early-game.",
     "contact": "Discord: thesixthroc",
     "factorio_version": "2.0",
     "quality_required": true,
