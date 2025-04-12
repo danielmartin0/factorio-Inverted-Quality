@@ -2,13 +2,13 @@
 Version: 0.4.0
 Date: ????
   Info:
-    - This is an update with breaking changes. Previous saves are not compatible.
+    - This is a breaking update, previous saves are not compatible.
   Changes:
     - Quality is no longer renamed to 'degradation'.
-    - The new quality levels are implemented as new prototypes rather than overriding the existing quality levels (with the exception of 'Nominal', which is still a rename of 'Normal'.) This means any existing saves with high-quality items will keep them.
-    - Decreased the degradation chance from 80% to 60%.
+    - The new quality levels are implemented as new prototypes rather than overriding the existing quality levels, with the exception of 'Nominal' which is still a rename of 'Normal'. This means loading a save with uncommon and greater items will keep those items.
+    - Reduced the degradation chance from 80% to 60%.
     - Renamed 'Busted' to 'Broken'.
-    - Reduced the quality module buff from -5X to -3X.
+    - Reduced the quality module buff from 5X to 3X.
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.2
 Date: 2025-04-03
