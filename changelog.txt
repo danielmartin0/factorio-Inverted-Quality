@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.1
-Date: ????
+Date: 2025-04-12
   Changes:
     - Fixed that the hidden uncommon+ quality levels were not buffed as appropriate.
     - Renamed Nominal to Normal.
