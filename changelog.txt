@@ -1,11 +1,5 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.4.1
-Date: 2025-04-12
-  Changes:
-    - Fixed that the hidden uncommon+ quality levels were not buffed as appropriate.
-    - Renamed Nominal to Normal.
----------------------------------------------------------------------------------------------------
-Version: 0.4.0
+Version: 0.5.0
 Date: 2025-04-12
   Info:
     - This is a breaking update, previous saves are not compatible.
@@ -13,6 +7,7 @@ Date: 2025-04-12
     - Quality is no longer renamed to 'degradation'.
     - The new quality levels are implemented as new prototypes rather than overriding the existing quality levels, with the exception of 'Nominal' which is still a rename of 'Normal'. This means loading a save with uncommon and greater items will keep those items.
     - Reduced the degradation chance from 80% to 60%.
+    - Renamed Nominal to Normal.s
     - Renamed 'Busted' to 'Broken'.
     - Reduced the quality module buff from 5X to 3X.
 ---------------------------------------------------------------------------------------------------
