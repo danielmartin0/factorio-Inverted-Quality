@@ -52,7 +52,7 @@ data:extend({
 		beacon_power_usage_multiplier = 1,
 		mining_drill_resource_drain_multiplier = 1,
 		science_pack_drain_multiplier = 1,
-		-- hidden = true,
+		hidden = true,
 	},
 })
 
