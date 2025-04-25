@@ -2,6 +2,8 @@
 Version: 0.5.6
 Date: ????
   Changes:
+    - Tweaks to burner assembling machine stats.
+    - Better compatibility with modded reactors.
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.5
 Date: 2025-04-25

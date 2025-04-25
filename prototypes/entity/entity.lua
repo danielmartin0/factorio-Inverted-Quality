@@ -41,7 +41,7 @@ data:extend({
 			fuel_categories = { "chemical" },
 			effectivity = 0.9,
 			fuel_inventory_size = 1,
-			emissions_per_minute = { pollution = 2 },
+			emissions_per_minute = { pollution = 5 },
 			light_flicker = {
 				minimum_light_size = 1,
 				light_intensity_to_size_coefficient = 0.2,
@@ -60,6 +60,6 @@ data:extend({
 		},
 		crafting_speed = 0.5,
 		next_upgrade = "assembling-machine-1",
-		max_health = 200,
+		max_health = 250,
 	}),
 })

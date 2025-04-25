@@ -72,9 +72,9 @@ local QUALITY_EFFECTS = {
 		{ buffer_capacity = { relative = 1, unit = "J" }, type = { "accumulator", "battery-equipment" } },
 		{ output_flow_limit = { relative = 0.3, unit = "W" }, type = "accumulator" },
 	},
-	energy_consumption = { relative = 0.3, type = "boiler", unit = "W" },
+	energy_consumption = { relative = 0.3, type = "boiler", unit = "W", lower_bound = 0.001 },
 	fluid_usage_per_tick = { relative = 0.3, type = "generator" },
-	consumption = { relative = 0.3, type = "reactor", unit = "W" },
+	consumption = { relative = 0.3, type = "reactor", unit = "W", lower_bound = 0.001 },
 
 	-- Lightning rods
 	efficiency = { relative = 0.3, type = "lightning-attractor" },
@@ -103,6 +103,12 @@ local function undo_quality_effects_on_physical_value(physical_value, modifier)
 		number = number / (1 + modifier.relative * QUALITY_LEVELS_TO_UNDO)
 	elseif modifier.absolute then
 		number = number - (modifier.absolute * QUALITY_LEVELS_TO_UNDO)
+	end
+	if modifier.bonus then
+		number = number + modifier.bonus
+	end
+	if modifier.lower_bound then
+		number = math.max(number, modifier.lower_bound)
 	end
 	return string.format("%.6f", number) .. unit
 end
