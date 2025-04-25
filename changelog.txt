@@ -2,6 +2,7 @@
 Version: 0.5.5
 Date: ????
   Changes:
+    - Compatibility with mods that introduce loops in recycling recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.4
 Date: 2025-04-25

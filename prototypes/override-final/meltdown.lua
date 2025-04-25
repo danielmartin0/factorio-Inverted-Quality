@@ -58,19 +58,28 @@ end
 
 local function compute_meltdown_values(item_name)
 	local final_values = {}
-
-	local to_process = { { item_name, 1 } }
+	local to_process = { { item_name, 1, { [item_name] = true } } }
 
 	while #to_process > 0 do
 		local new_working = {}
 
 		for _, current in ipairs(to_process) do
-			local current_name, current_value = table.unpack(current)
+			local current_name, current_value, seen_items = table.unpack(current)
 
 			local recycling = get_nontrivial_recycling_products(current_name)
 			if recycling then
 				for name, value in pairs(recycling) do
-					table.insert(new_working, { name, value * current_value * 4 })
+					if not seen_items[name] then
+						local new_seen = {}
+						for k in pairs(seen_items) do
+							new_seen[k] = true
+						end
+						new_seen[name] = true
+
+						table.insert(new_working, { name, value * current_value * 4, new_seen })
+					else
+						final_values[name] = (final_values[name] or 0) + value * current_value * 4 * MELTDOWN_FACTOR
+					end
 				end
 			else
 				final_values[current_name] = (final_values[current_name] or 0) + current_value * MELTDOWN_FACTOR
