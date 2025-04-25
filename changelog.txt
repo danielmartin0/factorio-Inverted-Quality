@@ -2,6 +2,8 @@
 Version: 0.5.3
 Date: ????
   Changes:
+    - Degradation chance increased from 60% to two thirds.
+    - Quality unlocks for uncommon, rare etc no longer appear in the tech tree.
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.0
 Date: 2025-04-12
