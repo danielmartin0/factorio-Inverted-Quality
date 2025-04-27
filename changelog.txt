@@ -2,6 +2,7 @@
 Version: 0.5.7
 Date: ????
   Changes:
+    - Renamed 'Downgrader port' to 'Downgrade port'.
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.6
 Date: 2025-04-25
