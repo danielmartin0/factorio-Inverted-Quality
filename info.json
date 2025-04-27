@@ -1,7 +1,7 @@
 {
     "name": "Inverted-Quality",
     "author": "thesixthroc",
-    "version": "0.5.7",
+    "version": "0.5.8",
     "title": "Inverted Quality",
     "description": "Inverts the Quality system to negative tiers (positive tiers are removed). Crafting items has a 66.6% chance to reduce their quality by one tier.\n\nTo cope with the new gameplay, the new Downgrade Port allows high-quality items to be used in low-quality recipes, and the Meltdown Facility allows the melting down of low-quality items back into Normal base materials.",
     "contact": "Discord: thesixthroc",
