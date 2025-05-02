@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.0
-Date: ????
+Date: 2025-05-02
   Changes:
     - The Broken quality is no longer hidden. Broken items are now instead generally nonfunctional: Broken entities and tiles are destroyed when placed, broken equipment cannot be inserted into grids, etc.
     - Handcrafting with intermediates is no longer prevented! Multi-step handcrafting experiences extra degradation on the final product.
