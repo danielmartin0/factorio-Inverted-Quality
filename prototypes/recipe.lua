@@ -1,15 +1,15 @@
 data:extend({
-	{
-		type = "recipe",
-		name = "Inverted-Quality-burner-assembling-machine",
-		ingredients = {
-			{ type = "item", name = "iron-plate", amount = 5 },
-			{ type = "item", name = "wood", amount = 8 },
-		},
-		results = { { type = "item", name = "Inverted-Quality-burner-assembling-machine", amount = 1 } },
-		enabled = true,
-		-- enabled = false,
-	},
+	-- {
+	-- 	type = "recipe",
+	-- 	name = "Inverted-Quality-burner-assembling-machine",
+	-- 	ingredients = {
+	-- 		{ type = "item", name = "iron-plate", amount = 5 },
+	-- 		{ type = "item", name = "wood", amount = 8 },
+	-- 	},
+	-- 	results = { { type = "item", name = "Inverted-Quality-burner-assembling-machine", amount = 1 } },
+	-- 	enabled = true,
+	-- 	-- enabled = false,
+	-- },
 	{
 		type = "recipe",
 		name = "Inverted-Quality-downgrade-port",
