@@ -83,19 +83,134 @@ script.on_event(defines.events.on_player_crafted_item, function(event)
 		return
 	end
 
-	local quality_name = stack.quality.name
+	local recipe = event.recipe.prototype
+	local meltdown_recipe = prototypes.recipe[recipe.name .. "-meltdown"]
 
-	local step = 0
-	while quality_name and prototypes.quality[quality_name].next do
-		if math.random() > common.BASE_DEGRADATION_CHANCE * 0.1 ^ step then
-			break
+	local steps
+	if meltdown_recipe and tonumber(meltdown_recipe.order) then
+		steps = tonumber(meltdown_recipe.order)
+	end
+	steps = steps or 1
+
+	local quality = prototypes.quality.normal
+
+	for _ = 1, steps do
+		if math.random() < common.BASE_DEGRADATION_CHANCE and quality.next then
+			quality = quality.next
+
+			while quality.next do
+				if math.random() > 0.1 then
+					break
+				end
+				quality = quality.next
+			end
 		end
-		quality_name = prototypes.quality[quality_name].next.name
-		step = step + 1
 	end
 
-	if quality_name ~= stack.quality.name then
-		stack.set_stack({ name = stack.name, count = stack.count, quality = quality_name })
+	if quality.name ~= "normal" then
+		stack.set_stack({ name = stack.name, count = stack.count, quality = quality.name })
+	end
+end)
+
+script.on_event({
+	defines.events.on_built_entity,
+	defines.events.on_robot_built_entity,
+	defines.events.on_space_platform_built_entity,
+}, function(event)
+	local entity = event.entity
+	if not (entity and entity.valid) then
+		return
+	end
+
+	if entity.quality.name == "broken" then
+		local dead = entity.die()
+
+		if not dead then
+			entity.destroy()
+		end
+	end
+end)
+
+script.on_event({
+	defines.events.on_robot_built_tile,
+	defines.events.on_player_built_tile,
+}, function(event)
+	local quality = event.quality
+	local surface = game.surfaces[event.surface_index]
+
+	if not (surface and surface.valid) then
+		return
+	end
+
+	if quality.name == "broken" then
+		local tiles = event.tiles
+		for _, tile in pairs(tiles) do
+			local hidden_tile = surface.get_hidden_tile(tile.position)
+			surface.set_tiles({ {
+				name = hidden_tile,
+				position = tile.position,
+			} }, true)
+		end
+	end
+end)
+
+script.on_event(defines.events.on_equipment_inserted, function(event)
+	local grid = event.grid
+	local equipment = event.equipment
+	if not (grid and grid.valid and equipment and equipment.valid) then
+		return
+	end
+
+	if equipment.quality.name == "broken" then
+		grid.take({ equipment = equipment })
+	end
+end)
+
+script.on_event(defines.events.on_player_used_capsule, function(event)
+	local player = game.players[event.player_index]
+	local quality = event.quality
+
+	if not (player and player.valid and player.character and player.character.valid) then
+		return
+	end
+
+	if quality.name == "broken" then
+		player.character.damage(20, game.player.force, "impact")
+	end
+end)
+
+script.on_event(defines.events.on_player_gun_inventory_changed, function(event)
+	local player = game.players[event.player_index]
+
+	if not (player and player.valid) then
+		return
+	end
+
+	local character = player.character
+
+	if not (character and character.valid) then
+		return
+	end
+
+	local gun_inventory = character.get_inventory(defines.inventory.character_guns)
+	local ammo_inventory = character.get_inventory(defines.inventory.character_ammo)
+
+	if ammo_inventory then
+		for i = #ammo_inventory, 1, -1 do
+			local ammo = ammo_inventory[i]
+			if ammo.valid_for_read and ammo.quality.name == "broken" then
+				ammo.clear()
+			end
+		end
+	end
+
+	if gun_inventory then
+		for i = #gun_inventory, 1, -1 do
+			local weapon = gun_inventory[i]
+			if weapon.valid_for_read and weapon.quality.name == "broken" then
+				weapon.clear()
+			end
+		end
 	end
 end)
 

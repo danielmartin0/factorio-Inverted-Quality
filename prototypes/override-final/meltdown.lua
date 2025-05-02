@@ -24,11 +24,11 @@ local function convert_product_to_result(name, value)
 	}
 end
 
-local function get_nontrivial_recycling_products(item_name)
+local function get_non_self_recycling_products(item_name)
 	local recycle_name = item_name .. "-recycling"
 	local recipe = data.raw.recipe[recycle_name]
 	if not recipe then
-		return nil
+		return nil, false
 	end
 
 	local values = {}
@@ -53,22 +53,30 @@ local function get_nontrivial_recycling_products(item_name)
 		end
 	end
 
-	return has_nontrivial and values or nil
+	return (has_nontrivial and values or nil)
 end
 
 local function compute_meltdown_values(item_name)
 	local final_values = {}
-	local to_process = { { item_name, 1, { [item_name] = true } } }
+	local to_process = { { name = item_name, value = 1, seen_items = { [item_name] = true }, depth = 0 } }
+	local max_depth = 0
 
 	while #to_process > 0 do
 		local new_working = {}
 
 		for _, current in ipairs(to_process) do
-			local current_name, current_value, seen_items = table.unpack(current)
+			local current_name = current.name
+			local current_value = current.value
+			local seen_items = current.seen_items
+			local depth = current.depth
 
-			local recycling = get_nontrivial_recycling_products(current_name)
-			if recycling then
-				for name, value in pairs(recycling) do
+			if depth > max_depth then
+				max_depth = depth
+			end
+
+			local recycling_products = get_non_self_recycling_products(current_name)
+			if recycling_products then
+				for name, value in pairs(recycling_products) do
 					if not seen_items[name] then
 						local new_seen = {}
 						for k in pairs(seen_items) do
@@ -76,7 +84,12 @@ local function compute_meltdown_values(item_name)
 						end
 						new_seen[name] = true
 
-						table.insert(new_working, { name, value * current_value * 4, new_seen })
+						table.insert(new_working, {
+							name = name,
+							value = value * current_value * 4,
+							seen_items = new_seen,
+							depth = depth + 1,
+						})
 					else
 						final_values[name] = (final_values[name] or 0) + value * current_value * 4 * MELTDOWN_FACTOR
 					end
@@ -89,15 +102,15 @@ local function compute_meltdown_values(item_name)
 		to_process = new_working
 	end
 
-	return final_values
+	return final_values, max_depth
 end
 
 for name, item in pairs(data.raw.item) do
-	local product_values = compute_meltdown_values(name)
+	local product_values, max_depth = compute_meltdown_values(name)
 
 	local products = {}
-	for name, value in pairs(product_values) do
-		table.insert(products, convert_product_to_result(name, value))
+	for product_name, value in pairs(product_values) do
+		table.insert(products, convert_product_to_result(product_name, value))
 	end
 
 	data:extend({
@@ -115,7 +128,7 @@ for name, item in pairs(data.raw.item) do
 			ingredients = { { type = "item", name = name, amount = 1 } },
 			results = products,
 			icons = common.generate_meltdown_recipe_icons_from_item(item),
-			order = "z[meltdown]-" .. name,
+			order = tostring(max_depth),
 			enabled = true,
 			auto_recycle = false,
 			show_amount_in_title = false,

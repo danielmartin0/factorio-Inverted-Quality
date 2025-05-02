@@ -1,6 +1,6 @@
 local Public = {}
 
-Public.BASE_DEGRADATION_CHANCE = 2 / 3
+Public.BASE_DEGRADATION_CHANCE = 0.667
 
 -- From quality mod:
 local function get_prototype(base_type, name)
