@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.6.0
+Version: 1.0.0
 Date: ????
   Changes:
     - The Broken quality is no longer hidden. Broken items are now instead generally nonfunctional: Broken entities and tiles are destroyed when placed, broken equipment cannot be inserted into grids, etc.
