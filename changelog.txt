@@ -2,6 +2,7 @@
 Version: 1.0.3
 Date: ????
   Changes:
+    - Burner assembling machines are removed from the mod, as they are no longer needed to resolve a softlock.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 2025-05-02
