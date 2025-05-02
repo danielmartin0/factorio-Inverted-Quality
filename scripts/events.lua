@@ -5,6 +5,7 @@ local Public = {}
 function Public.re_init()
 	storage.meltdown_facilities = storage.meltdown_facilities or {}
 	storage.compatibility_ports = storage.compatibility_ports or {}
+	storage.player_last_seen_max_ingredient_depth = storage.player_last_seen_max_ingredient_depth or {}
 
 	for _, force in pairs(game.forces) do
 		for name, tech in pairs(force.technologies) do
@@ -76,6 +77,25 @@ script.on_event(defines.events.on_tick, function()
 		end
 	end
 end)
+
+-- TODO: Finish this code and give players less of a penalty from handcrafting whilst already part of the way up the chain
+-- script.on_event(defines.events.on_pre_player_crafted_item, function(event)
+-- 	local items = event.items.get_contents()
+-- 	local max_ingredient_depth
+
+-- 	for _, item in pairs(items) do
+-- 		local meltdown_recipe = prototypes.recipe[item.name .. "-meltdown"]
+
+-- 		if meltdown_recipe and tonumber(meltdown_recipe.order) then
+-- 			if tonumber(meltdown_recipe.order) > max_ingredient_depth then
+-- 				max_ingredient_depth = tonumber(meltdown_recipe.order)
+-- 			end
+-- 		end
+-- 	end
+-- 	max_ingredient_depth = max_ingredient_depth or 0
+
+-- 	game.print(max_ingredient_depth)
+-- end)
 
 script.on_event(defines.events.on_player_crafted_item, function(event)
 	local stack = event.item_stack

@@ -9,6 +9,7 @@ end
 
 local QUALITY_LEVELS_TO_UNDO = 5
 
+-- Following https://wiki.factorio.com/Quality:
 local QUALITY_EFFECTS = {
 	max_health = { relative = 0.3 },
 
