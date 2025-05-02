@@ -2,6 +2,7 @@
 Version: 1.0.5
 Date: ????
   Changes:
+    - Support for downgrading or meltdown of guns, ammo, capsules, modules, repair packs.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 2025-05-02

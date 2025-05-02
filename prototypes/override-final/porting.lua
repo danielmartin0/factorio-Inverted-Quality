@@ -1,6 +1,6 @@
 local common = require("common")
 
-for _, type in pairs({ "item", "tool" }) do
+for _, type in pairs({ "item", "tool", "ammo", "capsule", "module", "gun", "repair-tool" }) do
 	if data.raw[type] then
 		for name, item in pairs(data.raw[type]) do
 			data:extend({
