@@ -2,6 +2,7 @@
 Version: 1.0.9
 Date: ????
   Changes:
+    - Fixed a crash when throwing a Broken capsule.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.8
 Date: 2025-05-03

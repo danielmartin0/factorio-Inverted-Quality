@@ -190,12 +190,21 @@ script.on_event(defines.events.on_player_used_capsule, function(event)
 	local player = game.players[event.player_index]
 	local quality = event.quality
 
-	if not (player and player.valid and player.character and player.character.valid) then
+	if
+		not (
+			player
+			and player.valid
+			and player.character
+			and player.character.valid
+			and player.force
+			and player.force.valid
+		)
+	then
 		return
 	end
 
 	if quality.name == "broken" then
-		player.character.damage(20, game.player.force, "impact")
+		player.character.damage(20, player.force, "impact")
 	end
 end)
 
