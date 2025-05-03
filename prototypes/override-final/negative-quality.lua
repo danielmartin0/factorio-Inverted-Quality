@@ -94,6 +94,11 @@ local QUALITY_EFFECTS = {
 	-- Tesla fork chance handled as a special case below
 
 	-- Asteroid collectors handled as a special case below
+
+	-- Undocumented quality effects. These are guesses!
+	target_movement_modifier_from = { absolute = -0.05, type = "sticker" },
+	vehicle_speed_modifier_from = { absolute = -0.05, type = "sticker" },
+	vehicle_friction_modifier_from = { absolute = 0.05, type = "sticker" },
 }
 
 local function undo_quality_effects_on_physical_value(physical_value, modifier)
@@ -215,11 +220,38 @@ local function process_nested_effects(prototype, effect_table)
 	end
 end
 
+log("DEBUG:")
+log(
+	'data.raw.sticker["acid-sticker-small"].target_movement_modifier_from = '
+		.. data.raw.sticker["acid-sticker-small"].target_movement_modifier_from
+)
+log(
+	'data.raw.sticker["acid-sticker-small"].vehicle_speed_modifier_from = '
+		.. data.raw.sticker["acid-sticker-small"].vehicle_speed_modifier_from
+)
+log(
+	'data.raw.sticker["acid-sticker-small"].vehicle_friction_modifier_from = '
+		.. data.raw.sticker["acid-sticker-small"].vehicle_friction_modifier_from
+)
+
 for _, prototype in pairs(data.raw) do
 	for name, entity in pairs(prototype) do
 		process_nested_effects(entity, QUALITY_EFFECTS)
 	end
 end
+
+log(
+	'data.raw.sticker["acid-sticker-small"].target_movement_modifier_from = '
+		.. data.raw.sticker["acid-sticker-small"].target_movement_modifier_from
+)
+log(
+	'data.raw.sticker["acid-sticker-small"].vehicle_speed_modifier_from = '
+		.. data.raw.sticker["acid-sticker-small"].vehicle_speed_modifier_from
+)
+log(
+	'data.raw.sticker["acid-sticker-small"].vehicle_friction_modifier_from = '
+		.. data.raw.sticker["acid-sticker-small"].vehicle_friction_modifier_from
+)
 
 for _, chain in pairs(data.raw["chain-active-trigger"]) do
 	chain.fork_chance_increase_per_quality_level = chain.fork_chance_increase_per_quality_level / 5
