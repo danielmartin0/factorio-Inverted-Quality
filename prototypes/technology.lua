@@ -7,11 +7,7 @@ data:extend({
 		effects = {
 			{
 				type = "unlock-quality",
-				quality = "scuffed",
-			},
-			{
-				type = "unlock-quality",
-				quality = "funky",
+				quality = "shoddy",
 			},
 			{
 				type = "unlock-quality",
