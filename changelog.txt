@@ -2,6 +2,7 @@
 Version: 1.1.5
 Date: ????
   Changes:
+    - Reduced the sound volume of the downgrade port.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.4
 Date: 2025-05-05

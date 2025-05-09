@@ -109,7 +109,7 @@ data:extend({
 		effect_receiver = { uses_module_effects = false, uses_beacon_effects = false, uses_surface_effects = false },
 		impact_category = "metal",
 		working_sound = {
-			sound = { filename = "__base__/sound/transport-belt-working.ogg", volume = 0.5 },
+			sound = { filename = "__base__/sound/transport-belt-working.ogg", volume = 0.15 },
 			audible_distance_modifier = 0.4,
 			fade_in_ticks = 2,
 			fade_out_ticks = 5,
