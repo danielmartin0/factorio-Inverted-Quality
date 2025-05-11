@@ -2,7 +2,7 @@
     "name": "Inverted-Quality",
     "author": "thesixthroc",
     "version": "1.1.6",
-    "title": "Inverted Quality",
+    "title": "Inverted Quality (Beta)",
     "description": "Inverts the Quality system to negative tiers (positive tiers are removed).\n\nCrafting items has a two-thirds chance to reduce their quality by one tier. Items in the lowest tier are nonfunctional.\n\nThe new Downgrade Port allows high-quality items to be used in low-quality recipes, and the Meltdown Facility allows the melting down of low-quality items back into Normal base materials.\n\nMap sliders for high resources and weaker enemies are recommended when playing this mod.",
     "contact": "Discord: thesixthroc",
     "factorio_version": "2.0",
