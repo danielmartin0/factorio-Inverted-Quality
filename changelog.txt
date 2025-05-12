@@ -1,7 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.7
 Date: ????
-  Changes:
+  Bugfixes:
+    - Contains a reaction to an apparent recent engine change in order to keep Quality module 1 at -3% degradation, etc.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.6
 Date: 2025-05-11
