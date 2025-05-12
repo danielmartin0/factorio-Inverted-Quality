@@ -11,6 +11,6 @@
         "base >= 2.0.49",
         "? space-age >= 2.0.49",
         "quality >= 2.0.49",
-        "PlanetsLib >= 1.3.6"
+        "PlanetsLib >= 1.4.0"
     ]
 }
