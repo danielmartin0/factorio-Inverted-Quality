@@ -1,7 +1,10 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.1.8
+Version: 1.2.0
 Date: ????
   Changes:
+    - Space Age is no longer a mandatory dependency!
+  Changes:
+    - The crafting time of meltdown recipes has been doubled so that the animation oscillates less.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.7
 Date: 2025-05-12

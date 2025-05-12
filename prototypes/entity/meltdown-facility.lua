@@ -46,7 +46,7 @@ data:extend({
 		damaged_trigger_effect = hit_effects.entity(),
 		crafting_categories = { "Inverted-Quality-meltdown" },
 		energy_usage = "3MW",
-		heating_energy = "300kW",
+		heating_energy = mods["space-age"] and "300kW" or nil,
 		crafting_speed = 1,
 		source_inventory_size = 1,
 		result_inventory_size = 12,

@@ -253,12 +253,12 @@ log(
 		.. data.raw.sticker["acid-sticker-small"].vehicle_friction_modifier_from
 )
 
-for _, chain in pairs(data.raw["chain-active-trigger"]) do
+for _, chain in pairs(data.raw["chain-active-trigger"] or {}) do
 	chain.fork_chance_increase_per_quality_level = chain.fork_chance_increase_per_quality_level / 5
 	chain.fork_chance = chain.fork_chance - QUALITY_LEVELS_TO_UNDO * chain.fork_chance_increase_per_quality_level
 end
 
-for _, collector in pairs(data.raw["asteroid-collector"]) do
+for _, collector in pairs(data.raw["asteroid-collector"] or {}) do
 	collector.arm_count_base = 1
 	-- collector.arm_count_base = 2 -- maybe this buff is helpful?
 	collector.arm_count_quality_scaling = 0

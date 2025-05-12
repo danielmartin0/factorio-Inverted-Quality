@@ -125,7 +125,7 @@ for _, type in pairs({ "item", "tool", "ammo", "capsule", "module", "gun", "repa
 				hide_from_signal_gui = true,
 				category = "Inverted-Quality-meltdown",
 				subgroup = "Inverted-Quality-meltdown",
-				energy_required = 0.2,
+				energy_required = 0.4,
 				ingredients = { { type = "item", name = name, amount = 1 } },
 				results = products,
 				icons = common.generate_meltdown_recipe_icons_from_item(item),
