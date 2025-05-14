@@ -105,13 +105,18 @@ local function undo_quality_effects_on_physical_value(physical_value, modifier)
 	local number = tonumber(string.match(physical_value, "^%d+%.?%d*"))
 	local unit = string.match(physical_value, "[^%d%s%.]+$")
 
-	if modifier.relative then
-		number = number / (1 + modifier.relative * QUALITY_LEVELS_TO_UNDO)
-	elseif modifier.absolute then
-		number = number - (modifier.absolute * QUALITY_LEVELS_TO_UNDO)
-	end
 	if modifier.bonus then
 		number = number + modifier.bonus
+	end
+
+	if modifier.relative then
+		number = number / (1 + modifier.relative * QUALITY_LEVELS_TO_UNDO)
+		if modifier.floor then
+			-- Inverted floor is ceil
+			number = math.ceil(number)
+		end
+	elseif modifier.absolute then
+		number = number - (modifier.absolute * QUALITY_LEVELS_TO_UNDO)
 	end
 	if modifier.lower_bound then
 		number = math.max(number, modifier.lower_bound)
@@ -123,21 +128,20 @@ local function apply_modifier(value, modifier)
 	if modifier.unit then
 		return undo_quality_effects_on_physical_value(value, modifier)
 	else
-		local new_value
+		local new_value = value
+
+		if modifier.bonus then
+			new_value = new_value + modifier.bonus
+		end
+
 		if modifier.relative then
-			new_value = value / (1 + modifier.relative * QUALITY_LEVELS_TO_UNDO)
+			new_value = new_value / (1 + modifier.relative * QUALITY_LEVELS_TO_UNDO)
 			if modifier.floor then
 				-- Inverted floor is ceil
 				new_value = math.ceil(new_value)
 			end
 		elseif modifier.absolute then
-			new_value = value - (modifier.absolute * QUALITY_LEVELS_TO_UNDO)
-		else
-			return value
-		end
-
-		if modifier.bonus then
-			new_value = new_value + modifier.bonus
+			new_value = new_value - (modifier.absolute * QUALITY_LEVELS_TO_UNDO)
 		end
 
 		if modifier.lower_bound then
