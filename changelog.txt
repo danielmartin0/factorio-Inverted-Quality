@@ -1,7 +1,11 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.2.2
+Version: 1.3.0
 Date: ????
   Changes:
+    - Broken-quality items are now level -3, improving mod compatibility.
+    - Disabled the generation of meltdown recipes when pymodpack is installed.
+  Info:
+    - These changes mean the mod at least _boots_ with Py installed.
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0-1.2.1
 Date: 2025-05-12

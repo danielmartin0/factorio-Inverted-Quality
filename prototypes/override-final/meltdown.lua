@@ -105,36 +105,41 @@ local function compute_meltdown_values(item_name)
 	return final_values, max_depth
 end
 
-for _, type in pairs({ "item", "tool", "ammo", "capsule", "module", "gun", "repair-tool" }) do
-	for name, item in pairs(data.raw[type]) do
-		local product_values, max_depth = compute_meltdown_values(name)
+if not mods["pymodpack"] then
+	for _, type in pairs({ "item", "tool", "ammo", "capsule", "module", "gun", "repair-tool" }) do
+		for name, item in pairs(data.raw[type]) do
+			local product_values, max_depth = compute_meltdown_values(name)
 
-		local products = {}
-		for product_name, value in pairs(product_values) do
-			table.insert(products, convert_product_to_result(product_name, value))
+			local products = {}
+			for product_name, value in pairs(product_values) do
+				table.insert(products, convert_product_to_result(product_name, value))
+			end
+
+			data:extend({
+				{
+					type = "recipe",
+					name = name .. "-meltdown",
+					localised_name = {
+						"recipe-name.Inverted-Quality-meltdown",
+						common.get_item_localised_name(item.name),
+					},
+					hidden = item.hidden and true or false,
+					-- hidden_in_factoriopedia = true,
+					hide_from_player_crafting = true,
+					hide_from_signal_gui = true,
+					category = "Inverted-Quality-meltdown",
+					subgroup = "Inverted-Quality-meltdown",
+					energy_required = 0.4,
+					ingredients = { { type = "item", name = name, amount = 1 } },
+					results = products,
+					icons = common.generate_meltdown_recipe_icons_from_item(item),
+					order = tostring(max_depth),
+					enabled = true,
+					auto_recycle = false,
+					show_amount_in_title = false,
+					unlock_results = false,
+				},
+			})
 		end
-
-		data:extend({
-			{
-				type = "recipe",
-				name = name .. "-meltdown",
-				localised_name = { "recipe-name.Inverted-Quality-meltdown", common.get_item_localised_name(item.name) },
-				hidden = item.hidden and true or false,
-				-- hidden_in_factoriopedia = true,
-				hide_from_player_crafting = true,
-				hide_from_signal_gui = true,
-				category = "Inverted-Quality-meltdown",
-				subgroup = "Inverted-Quality-meltdown",
-				energy_required = 0.4,
-				ingredients = { { type = "item", name = name, amount = 1 } },
-				results = products,
-				icons = common.generate_meltdown_recipe_icons_from_item(item),
-				order = tostring(max_depth),
-				enabled = true,
-				auto_recycle = false,
-				show_amount_in_title = false,
-				unlock_results = false,
-			},
-		})
 	end
 end

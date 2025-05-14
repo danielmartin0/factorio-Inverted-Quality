@@ -4,10 +4,10 @@ local find = lib.find
 -- Don't forget to update the locale entries if customizing this behavior.
 
 for _, quality in pairs(data.raw.quality) do
-	quality.level = quality.level + 5
+	quality.level = quality.level + 3
 end
 
-local QUALITY_LEVELS_TO_UNDO = 5
+local QUALITY_LEVELS_TO_UNDO = 3
 
 -- Following https://wiki.factorio.com/Quality:
 local QUALITY_EFFECTS = {
