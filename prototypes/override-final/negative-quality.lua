@@ -95,7 +95,11 @@ local QUALITY_EFFECTS = {
 
 	-- Asteroid collectors handled as a special case below
 
-	-- Undocumented quality effects. These are guesses!
+	-- Not documented on wiki, but included in Quezler's doc:
+	inventory_size_bonus = { relative = 0.3, floor = true }, -- Equipment and cargo bays
+	duration_in_ticks = { relative = 0.3, floor = true, type = "sticker" },
+
+	-- Other undocumented quality effects - these are guesses
 	target_movement_modifier_from = { absolute = -0.05, type = "sticker" },
 	vehicle_speed_modifier_from = { absolute = -0.05, type = "sticker" },
 	vehicle_friction_modifier_from = { absolute = 0.05, type = "sticker" },
