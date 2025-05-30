@@ -1,7 +1,8 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.3.4
+Version: 1.4.0
 Date: ????
   Changes:
+    - Quality now affects enemies. Enemy spawners and worms are downgraded in quality by one 'crafting step'. Spawned units are also downgraded by an additional step compared to their spawner.
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.3
 Date: 2025-05-15

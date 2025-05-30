@@ -97,6 +97,25 @@ end)
 -- 	game.print(max_ingredient_depth)
 -- end)
 
+local function downgrade_quality(quality_name, steps)
+	local quality = prototypes.quality[quality_name]
+
+	for _ = 1, steps do
+		if math.random() < common.BASE_DEGRADATION_CHANCE and quality.next then
+			quality = quality.next
+
+			while quality.next do
+				if math.random() > 0.1 then
+					break
+				end
+				quality = quality.next
+			end
+		end
+	end
+
+	return quality.name
+end
+
 script.on_event(defines.events.on_player_crafted_item, function(event)
 	local stack = event.item_stack
 	if not (stack and stack.valid) then
@@ -112,23 +131,10 @@ script.on_event(defines.events.on_player_crafted_item, function(event)
 	end
 	steps = steps or 1
 
-	local quality = prototypes.quality.normal
+	local quality = downgrade_quality("normal", steps)
 
-	for _ = 1, steps do
-		if math.random() < common.BASE_DEGRADATION_CHANCE and quality.next then
-			quality = quality.next
-
-			while quality.next do
-				if math.random() > 0.1 then
-					break
-				end
-				quality = quality.next
-			end
-		end
-	end
-
-	if quality.name ~= "normal" then
-		stack.set_stack({ name = stack.name, count = stack.count, quality = quality.name })
+	if quality ~= "normal" then
+		stack.set_stack({ name = stack.name, count = stack.count, quality = quality })
 	end
 end)
 
@@ -240,6 +246,57 @@ script.on_event(defines.events.on_player_gun_inventory_changed, function(event)
 				weapon.clear()
 			end
 		end
+	end
+end)
+
+function downgrade_entity(entity, starting_quality_name, steps)
+	local quality = downgrade_quality(starting_quality_name, steps)
+
+	if quality ~= entity.quality.name then
+		local name = entity.name
+		local surface = entity.surface
+		local position = entity.position
+		local force = entity.force
+
+		entity.destroy()
+
+		surface.create_entity({
+			name = name,
+			position = position,
+			force = force,
+			quality = quality,
+		})
+	end
+end
+
+script.on_event(defines.events.on_entity_spawned, function(event)
+	if not settings.startup["inverted-quality-downgrade-enemies"].value then
+		return
+	end
+
+	local entity = event.entity
+	local spawner = event.spawner
+	if not (entity and entity.valid and spawner and spawner.valid) then
+		return
+	end
+
+	downgrade_entity(entity, spawner.quality.name, 1)
+end)
+
+script.on_event(defines.events.on_chunk_generated, function(event)
+	if not settings.startup["inverted-quality-downgrade-enemies"].value then
+		return
+	end
+
+	local spawners = event.surface.find_entities_filtered({ area = event.area, force = "enemy", type = "unit-spawner" })
+
+	for _, spawner in pairs(spawners) do
+		downgrade_entity(spawner, "normal", 1)
+	end
+
+	local worms = event.surface.find_entities_filtered({ area = event.area, force = "enemy", type = "turret" })
+	for _, worm in pairs(worms) do
+		downgrade_entity(worm, "normal", 1)
 	end
 end)
 
