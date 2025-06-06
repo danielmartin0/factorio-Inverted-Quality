@@ -27,7 +27,32 @@ data:extend({
 		fast_replaceable_group = "Inverted-Quality-downgrade-port",
 		-- next_upgrade = "assembling-machine-2",
 		circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
-		circuit_connector = circuit_connector_definitions["assembling-machine"],
+		circuit_connector = circuit_connector_definitions.create_vector(universal_connector_template, {
+			{
+				variation = 28,
+				main_offset = util.by_pixel(15.375, -2.25),
+				shadow_offset = util.by_pixel(15.375, -2.25),
+				show_shadow = true,
+			},
+			{
+				variation = 18,
+				main_offset = util.by_pixel(-6.625, -2.75),
+				shadow_offset = util.by_pixel(-6.625, -2.75),
+				show_shadow = true,
+			},
+			{
+				variation = 24,
+				main_offset = util.by_pixel(-14.875, -7.5),
+				shadow_offset = util.by_pixel(-14.875, -7.5),
+				show_shadow = true,
+			},
+			{
+				variation = 14,
+				main_offset = util.by_pixel(6.875, -5.75),
+				shadow_offset = util.by_pixel(6.875, -5.75),
+				show_shadow = true,
+			},
+		}),
 		-- alert_icon_shift = util.by_pixel(0, -12),
 		graphics_set = {
 			animation = {
