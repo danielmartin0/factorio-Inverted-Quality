@@ -228,38 +228,11 @@ local function process_nested_effects(prototype, effect_table)
 	end
 end
 
-log("DEBUG:")
-log(
-	'data.raw.sticker["acid-sticker-small"].target_movement_modifier_from = '
-		.. data.raw.sticker["acid-sticker-small"].target_movement_modifier_from
-)
-log(
-	'data.raw.sticker["acid-sticker-small"].vehicle_speed_modifier_from = '
-		.. data.raw.sticker["acid-sticker-small"].vehicle_speed_modifier_from
-)
-log(
-	'data.raw.sticker["acid-sticker-small"].vehicle_friction_modifier_from = '
-		.. data.raw.sticker["acid-sticker-small"].vehicle_friction_modifier_from
-)
-
 for _, prototype in pairs(data.raw) do
 	for name, entity in pairs(prototype) do
 		process_nested_effects(entity, QUALITY_EFFECTS)
 	end
 end
-
-log(
-	'data.raw.sticker["acid-sticker-small"].target_movement_modifier_from = '
-		.. data.raw.sticker["acid-sticker-small"].target_movement_modifier_from
-)
-log(
-	'data.raw.sticker["acid-sticker-small"].vehicle_speed_modifier_from = '
-		.. data.raw.sticker["acid-sticker-small"].vehicle_speed_modifier_from
-)
-log(
-	'data.raw.sticker["acid-sticker-small"].vehicle_friction_modifier_from = '
-		.. data.raw.sticker["acid-sticker-small"].vehicle_friction_modifier_from
-)
 
 for _, chain in pairs(data.raw["chain-active-trigger"] or {}) do
 	chain.fork_chance_increase_per_quality_level = chain.fork_chance_increase_per_quality_level / 5
@@ -294,4 +267,10 @@ for _, collector in pairs(data.raw["asteroid-collector"] or {}) do
 		- collector.inventory_size_quality_increase * QUALITY_LEVELS_TO_UNDO
 	collector.arm_inventory_size = collector.arm_inventory_size
 		- collector.arm_inventory_size_quality_increase * QUALITY_LEVELS_TO_UNDO
+end
+
+for _, electric_pole in pairs(data.raw["electric-pole"]) do
+	if electric_pole.supply_area_distance == 0 then
+		electric_pole.supply_area_distance = 0.001 -- Otherwise none of the quality levels have any effect
+	end
 end
