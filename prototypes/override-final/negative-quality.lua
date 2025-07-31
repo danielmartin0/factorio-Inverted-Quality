@@ -271,6 +271,6 @@ end
 
 for _, electric_pole in pairs(data.raw["electric-pole"]) do
 	if electric_pole.supply_area_distance == 0 then
-		electric_pole.supply_area_distance = 0.001 -- Otherwise none of the quality levels have any effect
+		electric_pole.supply_area_distance = 0.001 -- Otherwise none of the quality levels have any supply area
 	end
 end

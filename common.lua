@@ -1,7 +1,5 @@
 local Public = {}
 
-Public.BASE_DEGRADATION_CHANCE = 0.667
-
 -- From quality mod:
 local function get_prototype(base_type, name)
 	for type_name in pairs(defines.prototypes[base_type]) do

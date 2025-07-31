@@ -8,9 +8,9 @@
     "factorio_version": "2.0",
     "quality_required": true,
     "dependencies": [
-        "base >= 2.0.49",
-        "? space-age >= 2.0.49",
-        "quality >= 2.0.49",
+        "base >= 2.0.60",
+        "? space-age >= 2.0.60",
+        "quality >= 2.0.60",
         "PlanetsLib >= 1.4.0",
         "quality-cursor"
     ]

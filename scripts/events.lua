@@ -100,8 +100,10 @@ end)
 local function downgrade_quality(quality_name, steps)
 	local quality = prototypes.quality[quality_name]
 
+	local degradation_chance = settings.startup["inverted-quality-degradation-chance"].value
+
 	for _ = 1, steps do
-		if math.random() < common.BASE_DEGRADATION_CHANCE and quality.next then
+		if math.random() < degradation_chance and quality.next then
 			quality = quality.next
 
 			while quality.next do

@@ -37,6 +37,7 @@ data:extend({
 		icon = "__Inverted-Quality__/graphics/icons/4.png",
 		beacon_power_usage_multiplier = 1,
 		mining_drill_resource_drain_multiplier = 1,
-		science_pack_drain_multiplier = 1,
+		science_pack_drain_multiplier = 0.011,
+		tool_durability_multiplier = 0.011,
 	},
 })
