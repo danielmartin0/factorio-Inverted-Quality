@@ -1,3 +1,5 @@
+require("api")
+
 require("prototypes.categories")
 require("prototypes.entity.meltdown-facility")
 require("prototypes.entity.downgrade-port")
@@ -6,3 +8,5 @@ require("prototypes.quality")
 require("prototypes.recipe")
 require("prototypes.entity.entity")
 require("prototypes.technology")
+
+require("prototypes.compat.aai-industry")
