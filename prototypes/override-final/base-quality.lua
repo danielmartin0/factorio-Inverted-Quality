@@ -8,6 +8,9 @@ for _, type in pairs({
 	"lab",
 }) do
 	for name, e in pairs(data.raw[type]) do
+		if InvertedQuality.entity[e.name] and InvertedQuality.entity[e.name].ignore == true then
+			goto continue
+		end
 		if not e.effect_receiver then
 			e.effect_receiver = {}
 		end
@@ -18,5 +21,6 @@ for _, type in pairs({
 		-- if name == "Inverted-Quality-meltdown-facility" or name == "Inverted-Quality-downgrade-port" then
 		-- 	e.effect_receiver.base_effect.quality = -100
 		-- end
+		::continue::
 	end
 end
